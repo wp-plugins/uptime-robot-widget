@@ -100,7 +100,7 @@ function uptimerobot_ajax() {
 			echo __('Oops! Something went wrong and failed to get the status, check again soon.', 'uptimerobot');
 		}
 	}
-	//Connections problems
+	//Connection problems
 	else {
 		echo __('Oops! Something went wrong and failed to get the status, check again soon.', 'uptimerobot');
 	}

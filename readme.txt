@@ -4,7 +4,7 @@ Tags: uptime robot, uptime, uptimerobot, widget, monitoring, uptime monitoring, 
 Donate link: http://beherit.pl/en/donations
 Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.0
+Stable tag: 1.0.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -23,12 +23,15 @@ This section describes how to install the plugin and get it working.
 No questions yet.
 
 == Changelog ==
+= 1.0.2 (2015-05-28) =
+* Minor changes and fixes.
+
 = 1.0 (2015-05-25) =
 * First public version.
 
 == Upgrade Notice ==
-= 1.0 (2015-05-25) =
-* First public version.
+= 1.0.2 (2015-05-28) =
+* Minor changes and fixes.
 
 == Other Notes ==
 This plugin is using [Font Awesome](https://fortawesome.github.io/Font-Awesome/).
