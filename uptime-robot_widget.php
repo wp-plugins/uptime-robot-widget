@@ -133,7 +133,7 @@ class uptimerobot_widget extends WP_Widget {
 		if(!empty($instance['title'])) echo $args['before_title'] . $instance['title'] . $args['after_title'];
 		//Widget content
 		$sc = '<div id="uptimerobot" class="uptimerobot">
-			<i title="'.__('Loading...', 'uptimerobot').'" class="fa fa-spinner fa-spin" style="font-size: 34px;"></i>
+			<i title="'.__('Loading...', 'uptimerobot').'" class="fa fa-spinner fa-pulse"fa-pulse" style="font-size: 34px;"></i>
 		</div>';
 		echo $sc;
 		//Widget end
