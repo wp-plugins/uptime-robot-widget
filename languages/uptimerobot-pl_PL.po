@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Uptime Robot Widget\n"
+"POT-Creation-Date: 2015-05-25 18:56+0100\n"
+"PO-Revision-Date: 2015-05-25 18:56+0100\n"
+"Last-Translator: Krzysztof Grochocki <kontakt@beherit.pl>\n"
+"Language-Team: Krzysztof Grochocki <kontakt@beherit.pl>\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../uptime-robot_admin.php:33 ../uptime-robot_admin.php:94
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: ../uptime-robot_admin.php:42 ../uptime-robot_admin.php:155
+msgid "Uptime Robot Widget"
+msgstr "Uptime Robot Widget"
+
+#: ../uptime-robot_admin.php:103
+msgid "Donations"
+msgstr "Wsparcie"
+
+#: ../uptime-robot_admin.php:122
+msgid "API key"
+msgstr "Klucz API"
+
+#: ../uptime-robot_admin.php:123
+#, php-format
+msgid ""
+"To get your API key visit <a target=\"_blank\" href=\"%s\">Uptime Robot "
+"webpage</a>."
+msgstr ""
+"Aby otrzymać klucz API odwiedź <a target=\"_blank\" href=\"%s\">stronę "
+"Uptime Robot</a>."
+
+#: ../uptime-robot_admin.php:130
+msgid "Save settings"
+msgstr "Zapisz zmiany"
+
+#: ../uptime-robot_admin.php:140
+msgid ""
+"If you like this plugin, please send a donation to support its development "
+"and maintenance"
+msgstr ""
+"Jeśli podoba Ci się ta wtyczka, proszę prześlij darowiznę na wsparcie jej "
+"rozwoju i utrzymanie"
+
+#: ../uptime-robot_widget.php:25
+msgid "paused"
+msgstr "paused"
+
+#: ../uptime-robot_widget.php:28
+msgid "not checked yet"
+msgstr "not checked yet"
+
+#: ../uptime-robot_widget.php:31
+msgid "up"
+msgstr "up"
+
+#: ../uptime-robot_widget.php:34
+msgid "seems down"
+msgstr "seems down"
+
+#: ../uptime-robot_widget.php:37
+msgid "down"
+msgstr "down"
+
+#: ../uptime-robot_widget.php:40
+msgid "unknown"
+msgstr "unknown"
+
+#: ../uptime-robot_widget.php:94 ../uptime-robot_widget.php:99
+msgid ""
+"Oops! Something went wrong and failed to get the status, check again soon."
+msgstr ""
+"Ups! Coś poszło nie tak i nie udało się pobrać statusu, sprawdź ponownie za "
+"chwilę."
+
+#: ../uptime-robot_widget.php:116
+msgid "Status of the monitored services in the Uptime Robot service."
+msgstr "Status monitorowanych usług w serwisie Uptime Robot."
+
+#: ../uptime-robot_widget.php:136
+msgid "Loading..."
+msgstr "Ładowanie..."
+
+#: ../uptime-robot_widget.php:151
+msgid "Title"
+msgstr "Tytuł"
+
+#: ../uptime-robot_widget.php:155
+#, php-format
+msgid "Please enter API key in <a href=\"%s\">plugin settings</a>."
+msgstr "Proszę wpisać klucz API w <a href=\"%s\">ustawieniach wtyczki</a>."

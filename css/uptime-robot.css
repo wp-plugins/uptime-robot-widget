@@ -1,0 +1,22 @@
+.widget_uptimerobot .uptimerobot .monitor{
+margin-bottom:4px;
+}
+.widget_uptimerobot .uptimerobot .status{
+border-radius:4px;
+color:#FFF;
+text-transform:uppercase;
+padding:2px 5px;
+margin:1px;
+display:inline-block;
+}
+.widget_uptimerobot .uptimerobot .status.stat0 { background-color: #999999; }
+.widget_uptimerobot .uptimerobot .status.stat1 { background-color: #999999; }
+.widget_uptimerobot .uptimerobot .status.stat2 { background-color: #4da74d; }
+.widget_uptimerobot .uptimerobot .status.stat8 { background-color: #ba3737; }
+.widget_uptimerobot .uptimerobot .status.stat9 { background-color: #ba3737; }
+.widget_uptimerobot .uptimerobot .name{
+padding-left:6px;
+}
+.widget_uptimerobot .uptimerobot .ratio{
+padding-left:6px;
+}
