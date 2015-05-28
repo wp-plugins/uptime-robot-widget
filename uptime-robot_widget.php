@@ -42,16 +42,20 @@ function uptimerobot_text_status($status){
 	return $r;
 }
 
-//jQuery script
-function uptimerobot_footer_jquery() { ?>
-	<script type="text/javascript" >
+//Enqueue styles
+function uptimerobot_enqueue_styles() {
+	wp_enqueue_style('uptimerobot', plugin_dir_url(__FILE__).'css/uptime-robot.css', array(), UPTIME_ROBOT_WIDGET_VERSION, 'all');
+	wp_enqueue_style('fontawesome', plugin_dir_url(__FILE__).'css/font-awesome.min.css', array(), '4.3.0', 'all');
+}
+add_action('wp_enqueue_scripts', 'uptimerobot_enqueue_styles');
+
+//Enqueue jQuery script via ajax
+function uptimerobot_jquery() {
+	header("content-type: text/javascript; charset=UTF-8"); ?>
 	jQuery(document).ready(function($) {
 		function ajax_get_uptimerobot()
 		{
-			var data = {
-				'action': 'get_uptimerobot'
-			};
-			$.post('<?php echo admin_url('admin-ajax.php?lang='.get_locale()); ?>', data, function(response) {
+			$.post('<?php echo admin_url('admin-ajax.php?action=get_uptimerobot&lang='.get_locale()); ?>', function(response) {
 				$('#uptimerobot').html(response);
 			});
 		}
@@ -59,11 +63,13 @@ function uptimerobot_footer_jquery() { ?>
 		setInterval(function() {
 			ajax_get_uptimerobot();
 		}, 60000);
-	});
-	</script>
-<?php }
+	}); <?
+	exit;
+}
+add_action('wp_ajax_nopriv_uptimerobot', 'uptimerobot_jquery');
+add_action('wp_ajax_uptimerobot', 'uptimerobot_jquery');
 
-//Add ajax function
+//Enqueue ajax function
 function uptimerobot_ajax() {
 	//Get API Key
 	$apikey = get_option('uptimerobot_apikey');
@@ -98,8 +104,8 @@ function uptimerobot_ajax() {
 	else {
 		echo __('Oops! Something went wrong and failed to get the status, check again soon.', 'uptimerobot');
 	}
-	//End
-	die();
+
+	exit;
 }
 add_action('wp_ajax_nopriv_get_uptimerobot', 'uptimerobot_ajax');
 add_action('wp_ajax_get_uptimerobot', 'uptimerobot_ajax');
@@ -122,11 +128,8 @@ class uptimerobot_widget extends WP_Widget {
     }
 	//Display function
 	function widget($args, $instance) {
-		//Add CSS styles
-		wp_enqueue_style('uptimerobot', plugin_dir_url(__FILE__).'css/uptime-robot.css', array(), filemtime(plugin_dir_path(__FILE__).'css/uptime-robot.css'), 'all');
-		wp_enqueue_style('fontawesome', plugin_dir_url(__FILE__).'css/font-awesome.min.css', false, '4.3.0', 'all');
-		//Add jQuery script
-		add_action('wp_footer', 'uptimerobot_footer_jquery');
+		//Enqueue jQuery script
+		wp_enqueue_script('uptimerobot', admin_url('admin-ajax.php?action=uptimerobot&lang='.get_locale()), array(), UPTIME_ROBOT_WIDGET_VERSION, true);
 		//Widget title
 		$instance['title'] = apply_filters('widget_title', $instance['title']);
 		echo $args['before_widget'];

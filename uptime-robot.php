@@ -28,6 +28,9 @@ License: GPLv3
 	along with GNU Radio. If not, see <http://www.gnu.org/licenses/>.
 */
 
+//Define plugin version variable
+define('UPTIME_ROBOT_WIDGET_VERSION', '1.0');
+
 //Define translations
 function uptimerobot_textdomain() {
 	load_plugin_textdomain('uptimerobot', false, dirname(plugin_basename(__FILE__)).'/languages');
