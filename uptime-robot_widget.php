@@ -42,10 +42,16 @@ function uptimerobot_text_status($status){
 	return $r;
 }
 
-//Enqueue styles
+//Enqueue styles & jQuery script
 function uptimerobot_enqueue_styles() {
-	wp_enqueue_style('uptimerobot', plugin_dir_url(__FILE__).'css/uptime-robot.css', array(), UPTIME_ROBOT_WIDGET_VERSION, 'all');
-	wp_enqueue_style('fontawesome', plugin_dir_url(__FILE__).'css/font-awesome.min.css', array(), '4.3.0', 'all');
+	if(is_active_widget(false, false, 'uptimerobot_widget')) {
+		wp_enqueue_style('uptimerobot', plugin_dir_url(__FILE__).'css/uptime-robot.css', array(), UPTIME_ROBOT_WIDGET_VERSION, 'all');
+		wp_enqueue_style('fontawesome', plugin_dir_url(__FILE__).'css/font-awesome.min.css', array(), '4.3.0', 'all');
+		wp_enqueue_script('uptimerobot', plugin_dir_url(__FILE__).'js/jquery.uptimerobot.js', array('jquery'), UPTIME_ROBOT_WIDGET_VERSION, true);
+		wp_localize_script('uptimerobot', 'uptimerobot', array(
+			'url' => admin_url('admin-ajax.php?action=get_uptimerobot&lang='.get_locale())
+		));
+	}
 }
 add_action('wp_enqueue_scripts', 'uptimerobot_enqueue_styles');
 
@@ -58,11 +64,11 @@ function uptimerobot_ajax() {
 		'timeout' => 5,
 		'redirection' => 0
 	);
-	///Get data
+	//Get data
 	$response = wp_remote_get('http://api.uptimerobot.com/getMonitors?apiKey='.$apikey.'&format=json&noJsonCallback=1', $url_args);
 	$http_code = wp_remote_retrieve_response_code($response);
 	//Verify response
-	if($http_code==200) {
+	if($http_code == 200) {
 		$json = json_decode(wp_remote_retrieve_body($response));
 		//Foreach monitors
 		if(!empty($json->monitors)) {
@@ -108,11 +114,6 @@ class uptimerobot_widget extends WP_Widget {
     }
 	//Display function
 	function widget($args, $instance) {
-		//Enqueue jQuery script
-		wp_enqueue_script('uptimerobot', plugin_dir_url(__FILE__).'js/jquery.uptimerobot.js', array('jquery'), UPTIME_ROBOT_WIDGET_VERSION, true);
-		wp_localize_script('uptimerobot', 'uptimerobot', array(
-			'url' => admin_url('admin-ajax.php?action=get_uptimerobot&lang='.get_locale())
-		));
 		//Widget title
 		$instance['title'] = apply_filters('widget_title', $instance['title']);
 		echo $args['before_widget'];
