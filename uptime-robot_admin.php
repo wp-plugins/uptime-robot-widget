@@ -29,7 +29,7 @@ add_action('admin_init', 'uptimerobot_register_settings');
 
 //Settings row on plugin page
 function uptimerobot_plugin_row_meta($plugin_meta, $plugin_file) {
-	if(dirname(plugin_basename(__FILE__)).'/uptime-robot.php'==$plugin_file)
+	if(dirname(plugin_basename(__FILE__)).'/uptime-robot.php' == $plugin_file)
 		$plugin_meta[] = '<a href="options-general.php?page=uptime-robot-options">'.__('Settings', 'uptimerobot').'</a>';
     return $plugin_meta;
 }
@@ -44,8 +44,6 @@ function uptimerobot_admin_menu() {
 	add_action('admin_enqueue_scripts', 'uptimerobot_options_enqueue_scripts');
 	//Add the needed jQuery script
 	add_action('admin_footer-'.$uptimerobot_options_page_hook, 'uptimerobot_options_scripts' );
-	//Set number of available columns
-	add_filter('screen_layout_columns', 'uptimerobot_options_layout_column', 10, 2);
 }
 add_action('admin_menu', 'uptimerobot_admin_menu');
 
@@ -73,16 +71,6 @@ function uptimerobot_options_scripts() {
 		//]]>
 	</script>
 <?php }
-
-//Number of columns available in options page
-function uptimerobot_options_layout_column($columns, $screen) {
-	//Get global variable
-	global $uptimerobot_options_page_hook;
-	if($screen == $uptimerobot_options_page_hook) {
-		$columns[$uptimerobot_options_page_hook] = 2;
-	}
-	return $columns;
-}
 
 //Add metaboxes
 function uptimerobot_add_meta_boxes() {
@@ -113,9 +101,8 @@ add_action('add_meta_boxes', 'uptimerobot_add_meta_boxes');
 function uptimerobot_settings_meta_box() { ?>
 	</div>
 	<form id="uptimerobot-form" method="post" action="options.php">
-		<?php settings_fields('uptimerobot_settings'); ?>
-		<?php wp_nonce_field('closedpostboxes', 'closedpostboxesnonce', false); ?>
-		<?php wp_nonce_field('meta-box-order', 'meta-box-order-nonce', false); ?>
+		<?php settings_fields('uptimerobot_settings');
+		wp_nonce_field('closedpostboxes', 'closedpostboxesnonce', false); ?>
 		<div class="inside" style="margin-top:-18px;">
 			<ul>
 				<li>
@@ -154,7 +141,7 @@ function uptimerobot_options() {
 	<div class="wrap">
 		<h2><?php _e('Uptime Robot Widget', 'uptimerobot'); ?></h2>
 		<div id="poststuff">
-			<div id="post-body" class="metabox-holder columns-<?php echo 1 == get_current_screen()->get_columns() ? '1' : '2'; ?>">
+			<div id="post-body" class="metabox-holder columns-2">
 				<div id="postbox-container-2" class="postbox-container">
 					<?php do_meta_boxes($uptimerobot_options_page_hook, 'normal', null); ?>
 				</div>
