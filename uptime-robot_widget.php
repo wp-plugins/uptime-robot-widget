@@ -49,26 +49,6 @@ function uptimerobot_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'uptimerobot_enqueue_styles');
 
-//Enqueue jQuery script via ajax
-function uptimerobot_jquery() {
-	header("content-type: text/javascript; charset=UTF-8"); ?>
-	jQuery(document).ready(function($) {
-		function ajax_get_uptimerobot()
-		{
-			$.post('<?php echo admin_url('admin-ajax.php?action=get_uptimerobot&lang='.get_locale()); ?>', function(response) {
-				$('#uptimerobot').html(response);
-			});
-		}
-		ajax_get_uptimerobot();
-		setInterval(function() {
-			ajax_get_uptimerobot();
-		}, 60000);
-	}); <?
-	exit;
-}
-add_action('wp_ajax_nopriv_uptimerobot', 'uptimerobot_jquery');
-add_action('wp_ajax_uptimerobot', 'uptimerobot_jquery');
-
 //Enqueue ajax function
 function uptimerobot_ajax() {
 	//Get API Key
@@ -129,7 +109,10 @@ class uptimerobot_widget extends WP_Widget {
 	//Display function
 	function widget($args, $instance) {
 		//Enqueue jQuery script
-		wp_enqueue_script('uptimerobot', admin_url('admin-ajax.php?action=uptimerobot&lang='.get_locale()), array(), UPTIME_ROBOT_WIDGET_VERSION, true);
+		wp_enqueue_script('uptimerobot', plugin_dir_url(__FILE__).'js/jquery.uptimerobot.js', array('jquery'), UPTIME_ROBOT_WIDGET_VERSION, true);
+		wp_localize_script('uptimerobot', 'uptimerobot', array(
+			'url' => admin_url('admin-ajax.php?action=get_uptimerobot&lang='.get_locale())
+		));
 		//Widget title
 		$instance['title'] = apply_filters('widget_title', $instance['title']);
 		echo $args['before_widget'];
