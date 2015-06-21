@@ -22,16 +22,17 @@
 function uptimerobot_register_settings() {
 	//Register settings
 	register_setting('uptimerobot_settings', 'uptimerobot_apikey');
-	//Add row to plugin page
-	add_filter('plugin_row_meta', 'uptimerobot_plugin_row_meta', 10, 2);
+	//Add link to the settings on plugins page
+	add_filter('plugin_action_links', 'uptimerobot_plugin_action_links', 10, 2);
 }
 add_action('admin_init', 'uptimerobot_register_settings');
 
-//Settings row on plugin page
-function uptimerobot_plugin_row_meta($plugin_meta, $plugin_file) {
-	if(dirname(plugin_basename(__FILE__)).'/uptime-robot.php' == $plugin_file)
-		$plugin_meta[] = '<a href="options-general.php?page=uptime-robot-options">'.__('Settings', 'uptimerobot').'</a>';
-    return $plugin_meta;
+//Link to the settings on plugins page
+function uptimerobot_plugin_action_links($action_links, $plugin_file) {
+	if(dirname(plugin_basename(__FILE__)).'/uptime-robot.php' == $plugin_file) {
+		$action_links[] = '<a href="options-general.php?page=uptime-robot-options">'.__('Settings', 'uptimerobot').'</a>';
+	}
+    return $action_links;
 }
 
 //Create options menu
