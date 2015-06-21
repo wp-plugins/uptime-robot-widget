@@ -108,7 +108,7 @@ function uptimerobot_settings_meta_box() { ?>
 			<ul>
 				<li>
 					<label for="uptimerobot_apikey"><?php _e('API key', 'uptimerobot'); ?>:&nbsp;<input type="text" size="40" name="uptimerobot_apikey" id="uptimerobot_apikey" value="<?php echo get_option('uptimerobot_apikey') ?>" /></label>
-					</br><small><?php printf(__('To get your API key visit <a target="_blank" href="%s">Uptime Robot webpage</a>.', 'uptimerobot'), 'https://uptimerobot.com/dashboard#mySettings'); ?>					
+					</br><small><?php printf(__('To get your API key visit <a target="_blank" href="%s">Uptime Robot webpage</a>.', 'uptimerobot'), 'https://uptimerobot.com/dashboard#mySettings'); ?>
 					</small>
 				</li>
 			</ul>
