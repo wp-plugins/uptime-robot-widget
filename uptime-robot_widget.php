@@ -25,7 +25,7 @@ function uptimerobot_text_status($status){
 			$r = __('paused', 'uptimerobot');
 			break;
 		case 1:
-			$r = __('not checked yet', 'uptimerobot');
+			$r = __('n/d', 'uptimerobot');
 			break;
 		case 2:
 			$r = __('up', 'uptimerobot');
@@ -37,7 +37,7 @@ function uptimerobot_text_status($status){
 			$r = __('down', 'uptimerobot');
 			break;
 		default:
-			$r = __('unknown', 'uptimerobot');
+			$r = __('unk', 'uptimerobot');
 	}
 	return $r;
 }
@@ -120,7 +120,7 @@ class uptimerobot_widget extends WP_Widget {
 		if(!empty($instance['title'])) echo $args['before_title'] . $instance['title'] . $args['after_title'];
 		//Widget content
 		$sc = '<div id="uptimerobot" class="uptimerobot">
-			<i title="'.__('Loading...', 'uptimerobot').'" class="fa fa-spinner fa-pulse"fa-pulse" style="font-size: 34px;"></i>
+			<i title="'.__('Loading...', 'uptimerobot').'" class="fa fa-spinner fa-pulse" style="font-size: 34px;"></i>
 		</div>';
 		echo $sc;
 		//Widget end
