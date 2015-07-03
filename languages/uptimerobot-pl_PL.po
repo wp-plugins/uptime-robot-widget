@@ -1,39 +1,55 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Uptime Robot Widget\n"
-"POT-Creation-Date: 2015-05-25 18:56+0100\n"
-"PO-Revision-Date: 2015-05-25 18:56+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-03 17:43+0200\n"
+"PO-Revision-Date: 2015-07-03 17:43+0200\n"
 "Last-Translator: Krzysztof Grochocki <kontakt@beherit.pl>\n"
-"Language-Team: Krzysztof Grochocki <kontakt@beherit.pl>\n"
+"Language-Team: \n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8\n"
-"X-Poedit-Basepath: .\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Poedit 1.8.2\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: ../uptime-robot_admin.php:33 ../uptime-robot_admin.php:94
+# URI of the plugin
+#: uptime-robot.php:34
+msgid "http://beherit.pl/en/wordpress/plugins/uptime-robot-widget"
+msgstr "http://beherit.pl/pl/wordpress/wtyczki/uptime-robot-widget"
+
+# Description of the plugin
+#: uptime-robot.php:35
+msgid ""
+"Adds a widget that shows the status of the monitored services in the Uptime "
+"Robot service."
+msgstr ""
+"Dodaje widget, który pokazuje stan monitorowanych usług w serwisie Uptime "
+"Robot."
+
+#: uptime-robot_admin.php:33 uptime-robot_admin.php:83
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: ../uptime-robot_admin.php:42 ../uptime-robot_admin.php:155
+#: uptime-robot_admin.php:43 uptime-robot_admin.php:143
 msgid "Uptime Robot Widget"
 msgstr "Uptime Robot Widget"
 
-#: ../uptime-robot_admin.php:103
+#: uptime-robot_admin.php:92
 msgid "Donations"
 msgstr "Wsparcie"
 
-#: ../uptime-robot_admin.php:122
+#: uptime-robot_admin.php:110
 msgid "API key"
 msgstr "Klucz API"
 
-#: ../uptime-robot_admin.php:123
+#: uptime-robot_admin.php:111
 #, php-format
 msgid ""
 "To get your API key visit <a target=\"_blank\" href=\"%s\">Uptime Robot "
@@ -42,11 +58,11 @@ msgstr ""
 "Aby otrzymać klucz API odwiedź <a target=\"_blank\" href=\"%s\">stronę "
 "Uptime Robot</a>."
 
-#: ../uptime-robot_admin.php:130
+#: uptime-robot_admin.php:118
 msgid "Save settings"
 msgstr "Zapisz zmiany"
 
-#: ../uptime-robot_admin.php:140
+#: uptime-robot_admin.php:128
 msgid ""
 "If you like this plugin, please send a donation to support its development "
 "and maintenance"
@@ -54,50 +70,50 @@ msgstr ""
 "Jeśli podoba Ci się ta wtyczka, proszę prześlij darowiznę na wsparcie jej "
 "rozwoju i utrzymanie"
 
-#: ../uptime-robot_widget.php:25
+#: uptime-robot_widget.php:25
 msgid "paused"
 msgstr "paused"
 
-#: ../uptime-robot_widget.php:28
-msgid "not checked yet"
-msgstr "not checked yet"
+#: uptime-robot_widget.php:28
+msgid "n/d"
+msgstr "b/d"
 
-#: ../uptime-robot_widget.php:31
+#: uptime-robot_widget.php:31
 msgid "up"
 msgstr "up"
 
-#: ../uptime-robot_widget.php:34
+#: uptime-robot_widget.php:34
 msgid "seems down"
 msgstr "seems down"
 
-#: ../uptime-robot_widget.php:37
+#: uptime-robot_widget.php:37
 msgid "down"
 msgstr "down"
 
-#: ../uptime-robot_widget.php:40
-msgid "unknown"
-msgstr "unknown"
+#: uptime-robot_widget.php:40
+msgid "unk"
+msgstr "unk"
 
-#: ../uptime-robot_widget.php:94 ../uptime-robot_widget.php:99
+#: uptime-robot_widget.php:86 uptime-robot_widget.php:91
 msgid ""
 "Oops! Something went wrong and failed to get the status, check again soon."
 msgstr ""
 "Ups! Coś poszło nie tak i nie udało się pobrać statusu, sprawdź ponownie za "
 "chwilę."
 
-#: ../uptime-robot_widget.php:116
+#: uptime-robot_widget.php:108
 msgid "Status of the monitored services in the Uptime Robot service."
 msgstr "Status monitorowanych usług w serwisie Uptime Robot."
 
-#: ../uptime-robot_widget.php:136
+#: uptime-robot_widget.php:123
 msgid "Loading..."
 msgstr "Ładowanie..."
 
-#: ../uptime-robot_widget.php:151
+#: uptime-robot_widget.php:138
 msgid "Title"
 msgstr "Tytuł"
 
-#: ../uptime-robot_widget.php:155
+#: uptime-robot_widget.php:142
 #, php-format
 msgid "Please enter API key in <a href=\"%s\">plugin settings</a>."
 msgstr "Proszę wpisać klucz API w <a href=\"%s\">ustawieniach wtyczki</a>."

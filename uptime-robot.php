@@ -6,6 +6,8 @@ Description: Adds a widget that shows the status of the monitored services in th
 Version: 1.1
 Author: Krzysztof Grochocki
 Author URI: http://beherit.pl/
+Text Domain: uptimerobot
+Domain Path: /languages
 License: GPLv3
 */
 
@@ -27,6 +29,10 @@ License: GPLv3
 	You should have received a copy of the GNU General Public License
 	along with GNU Radio. If not, see <http://www.gnu.org/licenses/>.
 */
+
+//Translate plugin meta-data
+__('http://beherit.pl/en/wordpress/plugins/uptime-robot-widget', 'uptimerobot');
+__('Adds a widget that shows the status of the monitored services in the Uptime Robot service.', 'uptimerobot');
 
 //Define plugin version variable
 define('UPTIME_ROBOT_WIDGET_VERSION', '1.1');
