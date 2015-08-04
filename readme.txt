@@ -3,8 +3,8 @@ Contributors: Beherit
 Tags: uptime robot, uptime, uptimerobot, widget, monitoring, uptime monitoring, server monitoring,
 Donate link: http://beherit.pl/en/donations
 Requires at least: 4.0
-Tested up to: 4.2.2
-Stable tag: 1.1
+Tested up to: 4.2.4
+Stable tag: 1.1.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -27,6 +27,10 @@ This section describes how to install the plugin and get it working.
 No questions yet.
 
 == Changelog ==
+= 1.1.2 (2015-08-04) =
+* Updated FontAwesome.
+* Minor bugfix.
+
 = 1.1 (2015-06-21) =
 * Optimize linking the scripts.
 * Minify jQuery script.
@@ -39,10 +43,9 @@ No questions yet.
 * First public version.
 
 == Upgrade Notice ==
-= 1.1 (2015-06-21) =
-* Optimize linking the scripts.
-* Minify jQuery script.
-* Properly added a link to the settings on plugins page.
+= 1.1.2 (2015-08-04) =
+* Updated FontAwesome.
+* Minor bugfix.
 
 == Other Notes ==
 This plugin is using [Font Awesome](https://fortawesome.github.io/Font-Awesome/).
