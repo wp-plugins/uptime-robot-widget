@@ -46,7 +46,7 @@ function uptimerobot_text_status($status){
 function uptimerobot_enqueue_styles() {
 	if(is_active_widget(false, false, 'uptimerobot_widget')) {
 		wp_enqueue_style('uptimerobot', plugin_dir_url(__FILE__).'css/uptime-robot.css', array(), UPTIME_ROBOT_WIDGET_VERSION, 'all');
-		wp_enqueue_style('fontawesome', plugin_dir_url(__FILE__).'css/font-awesome.min.css', array(), '4.3.0', 'all');
+		wp_enqueue_style('fontawesome', plugin_dir_url(__FILE__).'css/font-awesome.min.css', array(), '4.4.0', 'all');
 		wp_enqueue_script('uptimerobot', plugin_dir_url(__FILE__).'js/jquery.uptimerobot.min.js', array('jquery'), UPTIME_ROBOT_WIDGET_VERSION, true);
 		wp_localize_script('uptimerobot', 'uptimerobot', array(
 			'url' => admin_url('admin-ajax.php?action=get_uptimerobot&lang='.get_locale())
