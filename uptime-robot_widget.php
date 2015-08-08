@@ -101,16 +101,10 @@ add_action('widgets_init', function(){
 	register_widget('uptimerobot_widget');
 });
 class uptimerobot_widget extends WP_Widget {
-	//Constructor
-	function uptimerobot_widget() {
-		//Widget variable settings
-		$this->widget_cssclass    = 'widget_uptimerobot';
-		$this->widget_description =  __('Status of the monitored services in the Uptime Robot service.', 'uptimerobot');
-		$this->widget_name        = 'Uptime Robot';
-		//Widget settings
-		$widget_ops = array('classname' => $this->widget_cssclass, 'description' => $this->widget_description);
-		//Create the widget
-		$this->WP_Widget(false, $this->widget_name, $widget_ops);
+	//Widget constructor
+	function __construct() {
+		$widget_ops = array('classname' => 'widget_uptimerobot', 'description' => __('Status of the monitored services in the Uptime Robot service.', 'uptimerobot'));
+		parent::__construct('uptimerobot_widget', 'Uptime Robot', $widget_ops );
     }
 	//Display function
 	function widget($args, $instance) {
