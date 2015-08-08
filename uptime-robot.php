@@ -3,7 +3,7 @@
 Plugin Name: Uptime Robot Widget
 Plugin URI: http://beherit.pl/en/wordpress/plugins/uptime-robot-widget
 Description: Adds a widget that shows the status of the monitored services in the Uptime Robot service.
-Version: 1.1.2
+Version: 1.1.3
 Author: Krzysztof Grochocki
 Author URI: http://beherit.pl/
 Text Domain: uptimerobot
@@ -35,7 +35,7 @@ __('http://beherit.pl/en/wordpress/plugins/uptime-robot-widget', 'uptimerobot');
 __('Adds a widget that shows the status of the monitored services in the Uptime Robot service.', 'uptimerobot');
 
 //Define plugin version variable
-define('UPTIME_ROBOT_WIDGET_VERSION', '1.1.2');
+define('UPTIME_ROBOT_WIDGET_VERSION', '1.1.3');
 
 //Define translations
 function uptimerobot_textdomain() {
