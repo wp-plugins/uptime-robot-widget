@@ -65,7 +65,7 @@ function uptimerobot_ajax() {
 		'redirection' => 0
 	);
 	//Get data
-	$response = wp_remote_get('http://api.uptimerobot.com/getMonitors?apiKey='.$apikey.'&format=json&noJsonCallback=1', $url_args);
+	$response = wp_remote_get('https://api.uptimerobot.com/getMonitors?apiKey='.$apikey.'&format=json&noJsonCallback=1', $url_args);
 	$http_code = wp_remote_retrieve_response_code($response);
 	//Verify response
 	if($http_code == 200) {
