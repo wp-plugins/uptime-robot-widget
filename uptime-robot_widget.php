@@ -22,22 +22,22 @@
 function uptimerobot_text_status($status){
 	switch($status) {
 		case 0:
-			$r = __('paused', 'uptimerobot');
+			$r = __('paused', 'uptime-robot-widget');
 			break;
 		case 1:
-			$r = __('n/d', 'uptimerobot');
+			$r = __('n/d', 'uptime-robot-widget');
 			break;
 		case 2:
-			$r = __('up', 'uptimerobot');
+			$r = __('up', 'uptime-robot-widget');
 			break;
 		case 8:
-			$r = __('seems down', 'uptimerobot');
+			$r = __('seems down', 'uptime-robot-widget');
 			break;
 		case 9:
-			$r = __('down', 'uptimerobot');
+			$r = __('down', 'uptime-robot-widget');
 			break;
 		default:
-			$r = __('unk', 'uptimerobot');
+			$r = __('unk', 'uptime-robot-widget');
 	}
 	return $r;
 }
@@ -45,10 +45,10 @@ function uptimerobot_text_status($status){
 //Enqueue styles & jQuery script
 function uptimerobot_enqueue_styles() {
 	if(is_active_widget(false, false, 'uptimerobot_widget')) {
-		wp_enqueue_style('uptimerobot', plugin_dir_url(__FILE__).'css/uptime-robot.css', array(), UPTIME_ROBOT_WIDGET_VERSION, 'all');
+		wp_enqueue_style('uptime-robot-widget', plugin_dir_url(__FILE__).'css/uptime-robot.css', array(), UPTIME_ROBOT_WIDGET_VERSION, 'all');
 		wp_enqueue_style('fontawesome', plugin_dir_url(__FILE__).'css/font-awesome.min.css', array(), '4.4.0', 'all');
-		wp_enqueue_script('uptimerobot', plugin_dir_url(__FILE__).'js/jquery.uptimerobot.min.js', array('jquery'), UPTIME_ROBOT_WIDGET_VERSION, true);
-		wp_localize_script('uptimerobot', 'uptimerobot', array(
+		wp_enqueue_script('uptime-robot-widget', plugin_dir_url(__FILE__).'js/jquery.uptimerobot.min.js', array('jquery'), UPTIME_ROBOT_WIDGET_VERSION, true);
+		wp_localize_script('uptime-robot-widget', 'uptimerobot', array(
 			'url' => admin_url('admin-ajax.php?action=get_uptimerobot&lang='.get_locale())
 		));
 	}
@@ -83,12 +83,12 @@ function uptimerobot_ajax() {
 		}
 		//No data - wrong API key or no active monitors?
 		else {
-			echo __('Oops! Something went wrong and failed to get the status, check again soon.', 'uptimerobot');
+			echo __('Oops! Something went wrong and failed to get the status, check again soon.', 'uptime-robot-widget');
 		}
 	}
 	//Connection problems
 	else {
-		echo __('Oops! Something went wrong and failed to get the status, check again soon.', 'uptimerobot');
+		echo __('Oops! Something went wrong and failed to get the status, check again soon.', 'uptime-robot-widget');
 	}
 
 	exit;
@@ -103,7 +103,7 @@ add_action('widgets_init', function(){
 class uptimerobot_widget extends WP_Widget {
 	//Widget constructor
 	function __construct() {
-		$widget_ops = array('classname' => 'widget_uptimerobot', 'description' => __('Status of the monitored services in the Uptime Robot service.', 'uptimerobot'));
+		$widget_ops = array('classname' => 'widget_uptimerobot', 'description' => __('Status of the monitored services in the Uptime Robot service.', 'uptime-robot-widget'));
 		parent::__construct('uptimerobot_widget', 'Uptime Robot', $widget_ops );
     }
 	//Display function
@@ -114,7 +114,7 @@ class uptimerobot_widget extends WP_Widget {
 		if(!empty($instance['title'])) echo $args['before_title'] . $instance['title'] . $args['after_title'];
 		//Widget content
 		$sc = '<div id="uptimerobot" class="uptimerobot">
-			<i title="'.__('Loading...', 'uptimerobot').'" class="fa fa-spinner fa-pulse" style="font-size: 34px;"></i>
+			<i title="'.__('Loading...', 'uptime-robot-widget').'" class="fa fa-spinner fa-pulse" style="font-size: 34px;"></i>
 		</div>';
 		echo $sc;
 		//Widget end
@@ -129,11 +129,11 @@ class uptimerobot_widget extends WP_Widget {
 	//Settings form function
 	function form($instance) {
 		$sc = '<p>
-			<label for="'.$this->get_field_id('title').'">'.__('Title', 'uptimerobot').':</label>
+			<label for="'.$this->get_field_id('title').'">'.__('Title', 'uptime-robot-widget').':</label>
 			<input class="widefat" id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.$instance['title'].'" />
 		</p>
 		<p>
-			'.sprintf(__('Please enter API key in <a href="%s">plugin settings</a>.', 'uptimerobot'), 'options-general.php?page=uptime-robot-options').'
+			'.sprintf(__('Please enter API key in <a href="%s">plugin settings</a>.', 'uptime-robot-widget'), 'options-general.php?page=uptime-robot-options').'
 		</p>';
 		echo $sc;
 	}

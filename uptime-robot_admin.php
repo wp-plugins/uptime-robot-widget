@@ -30,7 +30,7 @@ add_action('admin_init', 'uptimerobot_register_settings');
 //Link to the settings on plugins page
 function uptimerobot_plugin_action_links($action_links, $plugin_file) {
 	if(dirname(plugin_basename(__FILE__)).'/uptime-robot.php' == $plugin_file) {
-		$action_links[] = '<a href="options-general.php?page=uptime-robot-options">'.__('Settings', 'uptimerobot').'</a>';
+		$action_links[] = '<a href="options-general.php?page=uptime-robot-options">'.__('Settings', 'uptime-robot-widget').'</a>';
 	}
     return $action_links;
 }
@@ -40,7 +40,7 @@ function uptimerobot_admin_menu() {
 	//Global variable
 	global $uptimerobot_options_page_hook;
 	//Add options page
-	$uptimerobot_options_page_hook = add_options_page(__('Uptime Robot Widget', 'uptimerobot'),__('Uptime Robot Widget', 'uptimerobot'), 'manage_options', 'uptime-robot-options', 'uptimerobot_options');
+	$uptimerobot_options_page_hook = add_options_page(__('Uptime Robot Widget', 'uptime-robot-widget'),__('Uptime Robot Widget', 'uptime-robot-widget'), 'manage_options', 'uptime-robot-options', 'uptimerobot_options');
 	//Add the needed JavaScript
 	add_action('admin_enqueue_scripts', 'uptimerobot_options_enqueue_scripts');
 	//Add the needed jQuery script
@@ -80,7 +80,7 @@ function uptimerobot_add_meta_boxes() {
 	//Add settings meta box
 	add_meta_box(
 		'uptimerobot_settings_meta_box',
-		__('Settings', 'uptimerobot'),
+		__('Settings', 'uptime-robot-widget'),
 		'uptimerobot_settings_meta_box',
 		$uptimerobot_options_page_hook,
 		'normal',
@@ -89,7 +89,7 @@ function uptimerobot_add_meta_boxes() {
 	//Add donate meta box
 	add_meta_box(
 		'uptimerobot_donate_meta_box',
-		__('Donations', 'uptimerobot'),
+		__('Donations', 'uptime-robot-widget'),
 		'uptimerobot_donate_meta_box',
 		$uptimerobot_options_page_hook,
 		'side',
@@ -107,15 +107,15 @@ function uptimerobot_settings_meta_box() { ?>
 		<div class="inside" style="margin-top:-18px;">
 			<ul>
 				<li>
-					<label for="uptimerobot_apikey"><?php _e('API key', 'uptimerobot'); ?>:&nbsp;<input type="text" size="40" name="uptimerobot_apikey" id="uptimerobot_apikey" value="<?php echo get_option('uptimerobot_apikey') ?>" /></label>
-					</br><small><?php printf(__('To get your API key visit <a target="_blank" href="%s">Uptime Robot webpage</a>.', 'uptimerobot'), 'https://uptimerobot.com/dashboard#mySettings'); ?>
+					<label for="uptimerobot_apikey"><?php _e('API key', 'uptime-robot-widget'); ?>:&nbsp;<input type="text" size="40" name="uptimerobot_apikey" id="uptimerobot_apikey" value="<?php echo get_option('uptimerobot_apikey') ?>" /></label>
+					</br><small><?php printf(__('To get your API key visit <a target="_blank" href="%s">Uptime Robot webpage</a>.', 'uptime-robot-widget'), 'https://uptimerobot.com/dashboard#mySettings'); ?>
 					</small>
 				</li>
 			</ul>
 		</div>
 		<div id="major-publishing-actions">
 			<div id="publishing-action">
-				<input type="submit" name="submit" id="submit" class="button-primary" value="<?php _e('Save settings', 'uptimerobot'); ?>" />
+				<input type="submit" name="submit" id="submit" class="button-primary" value="<?php _e('Save settings', 'uptime-robot-widget'); ?>" />
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -125,7 +125,7 @@ function uptimerobot_settings_meta_box() { ?>
 
 //Donate meta box
 function uptimerobot_donate_meta_box() { ?>
-	<p><?php _e('If you like this plugin, please send a donation to support its development and maintenance', 'uptimerobot'); ?></p>
+	<p><?php _e('If you like this plugin, please send a donation to support its development and maintenance', 'uptime-robot-widget'); ?></p>
 	<form style="width: 178px; height: 52px; margin: 0 auto;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 		<input type="hidden" name="cmd" value="_s-xclick">
 		<input type="hidden" name="hosted_button_id" value="X2NFKDZSPSUVJ">
@@ -140,7 +140,7 @@ function uptimerobot_options() {
 	//Enable add_meta_boxes function
 	do_action('add_meta_boxes', $uptimerobot_options_page_hook); ?>
 	<div class="wrap">
-		<h2><?php _e('Uptime Robot Widget', 'uptimerobot'); ?></h2>
+		<h2><?php _e('Uptime Robot Widget', 'uptime-robot-widget'); ?></h2>
 		<div id="poststuff">
 			<div id="post-body" class="metabox-holder columns-2">
 				<div id="postbox-container-2" class="postbox-container">
