@@ -61,7 +61,7 @@ function uptimerobot_ajax() {
 	$apikey = get_option('uptimerobot_apikey');
 	//GET arguments
 	$url_args = array(
-		'timeout' => 5,
+		'timeout' => 15,
 		'redirection' => 0
 	);
 	//Get data
